@@ -1,7 +1,7 @@
 Overview:
 
 
-For large enterprises that are building out Agentic AI use cases, one of the most important elements is the AI costing, observability and performance. There are a lot of strategies you can use to build out a better architecture to integrate all of the layers in the technical stack. Building a stack that will track everything at the chip level to inference level is very important to not only observe the costs, but also the uptime / upkeep. In this example, i've built out a simulated Finops + Observability solutions:
+I've built a simulated Finops + Observability solution for tracking AI workloads. Below are the tools I'm using -
 
 
 Instrumentation: OpenTelemetry
@@ -19,9 +19,9 @@ Cost / FinOps - Custom Tool
 Frontend - Streamlit
 
 
-Functional Flow:
+Here is the functional flow of the app - 
 
-1) Send a prompt request via Streamlit
+1) Send a prompt request via Streamlit front end
 2) OpenTelemetry starts a trace
 3) RAG retrieves context
 4) Request goes to Ollama (LLM)
@@ -56,10 +56,9 @@ TCP 9101
 Node Exporter
 TCP 9100
 
----
 Estimated Cost = (Token Cost) + (GPU Power × Duration × Electricity Rate) + (Memory Pressure Factor)
---
-Key files-
+
+Key files
 docker-compose.yml
 Dockerfile
 requirements.txt
@@ -69,13 +68,13 @@ app/main.py
 app/otel_setup.py
 app/cost_calculator.py
 frontend/app .py
----
+
 YAML - Configuration data format
 
----
+
 <img width="430" height="585" alt="Screenshot 2026-08-14 at 6 11 22 PM" src="https://github.com/user-attachments/assets/e1970ff8-b010-4110-9cc8-5c5fa385440a" />
 
----
+
 Token - Small piece of text
 Embedding - Numerical representation of meaning
 Vector - List of numbers
