@@ -41,21 +41,17 @@ Appendix:
 Important Ports-
 FastAPI App 
 TCP 8000
-http://localhost:8000
 
 Prometheus 
 TCP 9090
-http://localhost:9090
 
 Grafana 
 TCP 3000
-http://localhost:3000
 Colima VM -> Docker Container -> Grafana container TCP listens to port 3000 .YML -> Grafana application
 The VM recieves the HTTPS/TCP connection coming from your Mac and routes it into the correct container (speaks HTTPS/TCP).
 
 macmon - not in docker 
 TCP 9101
-http://localhost:9101/metrics
 
 Node Exporter
 TCP 9100
