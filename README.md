@@ -6,10 +6,10 @@ Here is a simulated Finops + Observability solution for tracking AI workloads. T
 
 Here is the functional flow of how each of these data points is being collected - 
 
-1) Start using your AI by submitting a prompt or running an Agent
+1) Start by using your AI, submit a prompt or run an Agent
 2) A trace has begun, with details about every action your AI or Agent is taking
 3) Retrieves context, request goes to LLM, LLM runs the model on GPU/Neural Engine
-4) AI answer or Agentic AI action is presented as the output, either user can submit an additional prompt or next step in AI chain is automatically executed
+4) An AI generation or Agentic AI action is presented as the output, either user can submit an additional prompt or the next step in Agentic chain is auto executed
 5) Metrics collected in parallel -
       Token usage & latency → OpenTelemetry + Langfuse
       CPU / Memory → Node Exporter
