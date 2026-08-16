@@ -1,7 +1,7 @@
 Overview:
 
 
-Here is a simulated Finops + Observability solution for tracking AI workloads. The purpose of this solution is to build a cost and workload tracking dashboard for AI deployments in your organization. As soon as you run this solution, a trace will start tracking all your AI deployments. It will be tracking every step your AI is making + calculating the costs of tokens by drilling down to the workloads happening in your datacenter. 
+Here is a simulated Finops + Observability solution for tracking AI workloads. The purpose of this solution is to build a cost and workload tracking dashboard for AI deployments in your organization. As soon as you run this solution, a trace will start tracking all your AI deployments. It will track every step your AI is making + calculating the costs of tokens by drilling down to the workloads happening in your datacenter. 
 
 
 Here is the functional flow of how each of these data points is being collected - 
@@ -23,22 +23,13 @@ Here is the functional flow of how each of these data points is being collected 
 Appendix:
 
 Important Ports-
-FastAPI App 
-TCP 8000
-
-Prometheus 
-TCP 9090
-
-Grafana 
-TCP 3000
+- FastAPI App TCP 8000
+- Prometheus TCP 9090
+- Grafana TCP 3000
 Colima VM -> Docker Container -> Grafana container TCP listens to port 3000 .YML -> Grafana application
 The VM recieves the HTTPS/TCP connection coming from your Mac and routes it into the correct container (speaks HTTPS/TCP).
-
-macmon - not in docker 
-TCP 9101
-
-Node Exporter
-TCP 9100
+- macmon - not in docker -TCP 9101
+- Node Exporter - TCP 9100
 
 Estimated Cost = (Token Cost) + (GPU Power × Duration × Electricity Rate) + (Memory Pressure Factor)
 
