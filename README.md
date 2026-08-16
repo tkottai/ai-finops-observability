@@ -4,10 +4,10 @@ Overview:
 I've built a simulated Finops + Observability solution for tracking AI workloads. Below are the tools I'm using -
 
 
-Instrumentation: OpenTelemetry
-Metrics Storage: Prometheus
-Visualization: Grafana
-CPU/Host Metrics: Prometheus Node Explorer
+Instrumentation - OpenTelemetry
+Metrics Storage - Prometheus
+Visualization - Grafana
+CPU/Host Metrics - Prometheus Node Explorer
 GPU Metrics: Macmon - Prometheus endpoint
 Tracing - Grafana Tempo - Full journey of a request
 Logs - Loki - Searches application logs
