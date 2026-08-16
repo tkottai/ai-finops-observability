@@ -1,37 +1,21 @@
 Overview:
 
 
-I've built a simulated Finops + Observability solution for tracking AI workloads. Below are the tools I'm using -
+Here is a simulated Finops + Observability solution for tracking AI workloads. The purpose of this solution is to build a cost and workload tracking dashboard for AI deployments in your organization. As soon as you run this solution, a trace will start tracking all your AI deployments. It will be tracking every step your AI is making + calculating the costs of tokens by drilling down to the workloads happening in your datacenter. 
 
 
-Instrumentation - OpenTelemetry
-Metrics Storage - Prometheus
-Visualization - Grafana
-CPU/Host Metrics - Prometheus Node Explorer
-GPU Metrics: Macmon - Prometheus endpoint
-Tracing - Grafana Tempo - Full journey of a request
-Logs - Loki - Searches application logs
-Orchestration - Docker Compose
-Inference Engine - Ollama
-LLM Observability - Langfuse - Deep observability for LLM prompts, costs, and quality
-RAG Evaluation - RAGAS - Helps automatically test and score whether your RAG system is giving accurate, grounded, and useful answers.
-Cost / FinOps - Custom Tool
-Frontend - Streamlit
+Here is the functional flow of how each of these data points is being collected - 
 
-
-Here is the functional flow of the app - 
-
-1) Send a prompt request via Streamlit front end
-2) OpenTelemetry starts a trace
-3) RAG retrieves context
-4) Request goes to Ollama (LLM)
-5) Ollama runs the model on GPU/Neural Engine
-6) Metrics collected in parallel-
+1) Start using your AI by submitting a prompt or running an Agent
+2) A trace has begun, with details about every action your AI or Agent is taking
+3) Retrieves context, request goes to LLM, LLM runs the model on GPU/Neural Engine
+4) AI answer or Agentic AI action is presented as the output, either user can submit an additional prompt or next step in AI chain is automatically executed
+5) Metrics collected in parallel -
       Token usage & latency → OpenTelemetry + Langfuse
       CPU / Memory → Node Exporter
       GPU usage %, power (watts), temperature → macmon
 7) Cost service calculates token costs and estimated energy cost (using GPU power draw × time)
-8) Everything appears in Grafana dashboards (and Langfuse UI).
+8) Everything appears in FinOps Dashboard
 
 
 
@@ -81,3 +65,17 @@ Vector - List of numbers
 Similarity - How close two vectors are (cosine)
 Embedding model - AI model that creates the vectors
 
+Below are the tools I'm using -
+1) Instrumentation - OpenTelemetry
+2) Metrics Storage - Prometheus
+3) Visualization - Grafana
+4) CPU/Host Metrics - Prometheus Node Explorer
+5) GPU Metrics: Macmon - Prometheus endpoint
+6) Tracing - Grafana Tempo - Full journey of a request
+7) Logs - Loki - Searches application logs
+8) Orchestration - Docker Compose
+9) Inference Engine - Ollama
+10) LLM Observability - Langfuse - Deep observability for LLM prompts, costs, and quality
+11) RAG Evaluation - RAGAS - Helps automatically test and score whether your RAG system is giving accurate, grounded, and useful answers.
+12) Cost / FinOps - Custom Tool
+13) Frontend - Streamlit
