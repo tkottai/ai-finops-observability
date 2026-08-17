@@ -18,7 +18,7 @@ Here is the functional flow of how each of these data points is being collected 
 8) Everything appears in FinOps Dashboard
 
 <img width="1458" height="1278" alt="image" src="https://github.com/user-attachments/assets/2259ad3d-984e-4833-b8ec-0e6a768c90a7" />
-<img width="2514" height="1262" alt="image" src="https://github.com/user-attachments/assets/27872136-b800-4605-8125-37a89a317e91" />
+<img width="2270" height="1210" alt="image" src="https://github.com/user-attachments/assets/f44a7c0d-ae47-4094-986e-dcc2313a181a" />
 <img width="2514" height="1262" alt="image" src="https://github.com/user-attachments/assets/cdaf2399-a618-4b6e-b094-6550d7adf42c" />
 
 
