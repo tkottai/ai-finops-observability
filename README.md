@@ -19,6 +19,36 @@ Here is the functional flow of how each of these data points is being collected 
 
 <img width="1458" height="1278" alt="image" src="https://github.com/user-attachments/assets/2259ad3d-984e-4833-b8ec-0e6a768c90a7" />
 <img width="2270" height="1210" alt="image" src="https://github.com/user-attachments/assets/41161bc8-d472-4d05-8d40-464f2ad2d45e" />
+<img width="2514" height="1262" alt="image" src="https://github.com/user-attachments/assets/73a63749-7ca5-40fe-ac2d-52c82192b8b8" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -35,22 +65,12 @@ The VM recieves the HTTPS/TCP connection coming from your Mac and routes it into
 - macmon - not in docker -TCP 9101
 - Node Exporter - TCP 9100
 
+Calculations - 
 Estimated Cost = (Token Cost) + (GPU Power × Duration × Electricity Rate) + (Memory Pressure Factor)
-
-Key files
-docker-compose.yml
-Dockerfile
-requirements.txt
-.env
-monitoring/prometheus.yml
-app/main.py
-app/otel_setup.py
-app/cost_calculator.py
-frontend/app .py
 
 YAML - Configuration data format
 
-
+Sample token costs for input and outputs - 
 <img width="430" height="585" alt="Screenshot 2026-08-14 at 6 11 22 PM" src="https://github.com/user-attachments/assets/e1970ff8-b010-4110-9cc8-5c5fa385440a" />
 
 
@@ -60,7 +80,7 @@ Vector - List of numbers
 Similarity - How close two vectors are (cosine)
 Embedding model - AI model that creates the vectors
 
-Below are the tools I'm using -
+Below are the tools I'm using - 
 1) Instrumentation - OpenTelemetry
 2) Metrics Storage - Prometheus
 3) Visualization - Grafana
