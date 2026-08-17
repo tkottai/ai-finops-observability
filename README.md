@@ -17,6 +17,10 @@ Here is the functional flow of how each of these data points is being collected 
 7) Cost service calculates token costs and estimated energy cost (using GPU power draw × time)
 8) Everything appears in FinOps Dashboard
 
+<img width="1458" height="1278" alt="image" src="https://github.com/user-attachments/assets/2259ad3d-984e-4833-b8ec-0e6a768c90a7" />
+<img width="2270" height="1210" alt="image" src="https://github.com/user-attachments/assets/41161bc8-d472-4d05-8d40-464f2ad2d45e" />
+
+
 
 
 
