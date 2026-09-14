@@ -55,33 +55,18 @@ Here is the functional flow of how each of these data points is being collected 
 
 
 
-Appendix:
 
-Important Ports-
-- FastAPI App TCP 8000
-- Prometheus TCP 9090
-- Grafana TCP 3000
-Colima VM -> Docker Container -> Grafana container TCP listens to port 3000 .YML -> Grafana application
-The VM recieves the HTTPS/TCP connection coming from your Mac and routes it into the correct container (speaks HTTPS/TCP).
-- macmon - not in docker -TCP 9101
-- Node Exporter - TCP 9100
 
-Calculations - 
+Calculations:
+
 Estimated Cost = (Token Cost) + (GPU Power × Duration × Electricity Rate) + (Memory Pressure Factor)
 
-YAML - Configuration data format
 
 Sample token costs for input and outputs - 
 <img width="430" height="585" alt="Screenshot 2026-08-14 at 6 11 22 PM" src="https://github.com/user-attachments/assets/e1970ff8-b010-4110-9cc8-5c5fa385440a" />
 
 
-Token - Small piece of text
-Embedding - Numerical representation of meaning
-Vector - List of numbers
-Similarity - How close two vectors are (cosine)
-Embedding model - AI model that creates the vectors
-
-Below are the tools I'm using - 
+Below are the tools I'm using:
 1) Instrumentation - OpenTelemetry
 2) Metrics Storage - Prometheus
 3) Visualization - Grafana
