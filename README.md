@@ -80,3 +80,63 @@ Below are the tools I'm using:
 11) RAG Evaluation - RAGAS - Helps automatically test and score whether your RAG system is giving accurate, grounded, and useful answers.
 12) Cost / FinOps - Custom Tool
 13) Frontend - Streamlit
+
+## Baseline Architecture
+
+This repository currently documents a simulated reference architecture. The diagram below separates the AI workload, telemetry pipeline, cost calculation, and visualization layers that a full implementation would connect.
+
+```mermaid
+flowchart TB
+    User["User or agent trigger"] --> App["AI application or agent"]
+    App --> RAG["Retrieval and tool calls"]
+    RAG --> Ollama["Ollama inference"]
+
+    App -. traces .-> OTel["OpenTelemetry"]
+    App -. LLM events .-> Langfuse["Langfuse"]
+    Host["Host CPU and memory"] -. metrics .-> Node["Node Exporter"]
+    GPU["GPU power and utilization"] -. metrics .-> Macmon["macmon exporter"]
+
+    OTel --> Tempo["Grafana Tempo"]
+    App -. logs .-> Loki["Grafana Loki"]
+    Node --> Prom["Prometheus"]
+    Macmon --> Prom
+    Langfuse --> Cost["Custom cost calculator"]
+    Prom --> Cost
+
+    Tempo --> Grafana["Grafana FinOps dashboard"]
+    Loki --> Grafana
+    Prom --> Grafana
+    Cost --> Grafana
+```
+
+Architectural Flow:
+
+```mermaid
+sequenceDiagram
+    actor User
+    participant App as AI Application
+    participant LLM as Ollama
+    participant Telemetry as Telemetry Stack
+    participant Cost as Cost Service
+    participant Dash as Grafana
+
+    User->>App: Submit prompt or start agent
+    App->>Telemetry: Start trace and record metadata
+    App->>LLM: Send prompt and retrieved context
+    LLM-->>App: Return generation or tool decision
+    App->>Telemetry: Record tokens, latency, logs and spans
+    LLM->>Telemetry: Export host and GPU metrics
+    Telemetry->>Cost: Supply usage and duration measurements
+    Cost->>Cost: Calculate token and estimated energy cost
+    Cost-->>Dash: Publish cost metrics
+    Telemetry-->>Dash: Publish traces, logs and infrastructure metrics
+    Dash-->>User: Display workload and cost views
+```
+
+Control and Deployment Boundaries
+
+- Docker Compose is the proposed local orchestration boundary for Prometheus, Grafana, Tempo, Loki, Langfuse, Ollama, and supporting services.
+- `macmon` remains outside Docker and exposes GPU-related metrics on TCP 9101.
+- Node Exporter exposes host metrics on TCP 9100; Prometheus scrapes the configured exporters on TCP 9090.
+- The cost formula is an estimate and should be labeled separately from provider-billed cost.
+- No executable observability stack is currently checked into this repository; configuration files and application instrumentation remain implementation work.
